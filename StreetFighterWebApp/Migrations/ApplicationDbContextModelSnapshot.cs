@@ -36,6 +36,9 @@ namespace StreetFighterWebApp.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
@@ -97,7 +100,7 @@ namespace StreetFighterWebApp.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("EsportGroup");
+                    b.ToTable("EsportGroups");
                 });
 
             modelBuilder.Entity("StreetFighterWebApp.Models.Tournament", b =>

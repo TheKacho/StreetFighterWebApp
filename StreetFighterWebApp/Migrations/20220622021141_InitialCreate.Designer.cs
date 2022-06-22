@@ -12,7 +12,7 @@ using StreetFighterWebApp.Data;
 namespace StreetFighterWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220616180629_InitialCreate")]
+    [Migration("20220622021141_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace StreetFighterWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
@@ -99,7 +102,7 @@ namespace StreetFighterWebApp.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("EsportGroup");
+                    b.ToTable("EsportGroups");
                 });
 
             modelBuilder.Entity("StreetFighterWebApp.Models.Tournament", b =>

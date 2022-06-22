@@ -16,6 +16,7 @@ namespace StreetFighterWebApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -43,7 +44,7 @@ namespace StreetFighterWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EsportGroup",
+                name: "EsportGroups",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -57,14 +58,14 @@ namespace StreetFighterWebApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EsportGroup", x => x.Id);
+                    table.PrimaryKey("PK_EsportGroups", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EsportGroup_Addresses_AddressId",
+                        name: "FK_EsportGroups_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_EsportGroup_AppUser_AppUserId",
+                        name: "FK_EsportGroups_AppUser_AppUserId",
                         column: x => x.AppUserId,
                         principalTable: "AppUser",
                         principalColumn: "Id");
@@ -104,13 +105,13 @@ namespace StreetFighterWebApp.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EsportGroup_AddressId",
-                table: "EsportGroup",
+                name: "IX_EsportGroups_AddressId",
+                table: "EsportGroups",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EsportGroup_AppUserId",
-                table: "EsportGroup",
+                name: "IX_EsportGroups_AppUserId",
+                table: "EsportGroups",
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
@@ -127,7 +128,7 @@ namespace StreetFighterWebApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EsportGroup");
+                name: "EsportGroups");
 
             migrationBuilder.DropTable(
                 name: "Tournaments");
